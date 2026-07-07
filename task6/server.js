@@ -1,11 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const bookRoutes = require("./routes/bookRoutes");
 
 const app = express();
 
 app.use(express.json());
+app.set("query parser", "extended");
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/book-module")
@@ -32,6 +35,11 @@ app.get("/", (req, res) => {
         method: "DELETE",
         path: "/api/books/:id",
         description: "Delete a book",
+      },
+      {
+        method: "GET",
+        path: "/uploads/books/:file",
+        description: "Serve uploaded book images",
       },
     ],
   });

@@ -42,6 +42,9 @@ const bookSchema = new mongoose.Schema(
       unique: true,
       sparse: true,
     },
+    coverImage: {
+      type: String,
+    },
     price: {
       type: Number,
       required: true,
