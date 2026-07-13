@@ -1,0 +1,21 @@
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+strong {
+  color: #667eea;
+}
